@@ -1,0 +1,58 @@
+body {
+	background-color: green;
+	margin: 0;
+	padding: 0;
+}
+
+#top-bar {
+	right: 0;
+	height: 30px;
+	padding: 10px;
+	background-color: darkgreen;
+}
+
+#top-bar p {
+	padding: 0;
+	margin: 0;
+	font-size: 30px;
+	font-family: "Segoe UI", Ubuntu;
+	font-weight: bold;
+	color: greenyellow;
+}
+
+#side-nav {
+	position: absolute;
+	background-color: #333;
+	top: 50px;
+	bottom: 0;
+	width: 100px;
+}
+
+#side-nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#side-nav li {
+	padding: 10px;
+}
+
+#side-nav li:hover {
+	background-color: #555;
+}
+
+#side-nav a {
+	color: #ccc;
+	text-decoration: none;
+}
+
+#side-nav a:hover {
+	color: yellow;
+}
+
+#main {
+	position: absolute;
+	margin-left: 100px;
+	padding: 0px 20px 0px;
+}
