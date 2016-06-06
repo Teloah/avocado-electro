@@ -16,7 +16,7 @@
     "Electron"
   ],
   "author": "Andris Klaipins",
-  "license": "GPL",
+  "license": "GPL-3.0",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
     "spectron": "~3.2.2"
