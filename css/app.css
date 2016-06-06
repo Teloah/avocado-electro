@@ -2,6 +2,7 @@ body {
 	background-color: green;
 	margin: 0;
 	padding: 0;
+	font-family: "Segoe UI", Ubuntu;
 }
 
 #top-bar {
@@ -15,7 +16,6 @@ body {
 	padding: 0;
 	margin: 0;
 	font-size: 30px;
-	font-family: "Segoe UI", Ubuntu;
 	font-weight: bold;
 	color: greenyellow;
 }
@@ -32,10 +32,6 @@ body {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-}
-
-#side-nav li {
-	margin: 0;
 }
 
 #side-nav li:hover {
@@ -56,5 +52,10 @@ body {
 #main {
 	position: absolute;
 	margin-left: 100px;
-	padding: 0px 20px 0px;
+	padding: 0px 10px 0px;
+}
+
+#main h2 {
+	margin: 0;
+	padding: 0;
 }
