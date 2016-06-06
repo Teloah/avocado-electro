@@ -1,3 +1,6 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+var fs = require("fs");
+
+$('.nav-btn').on('click', function() {
+	var source = fs.readFileSync(__dirname + '/pages/' + this.id + '.html', "utf-8");
+	document.getElementById("main").innerHTML  = source;
+});

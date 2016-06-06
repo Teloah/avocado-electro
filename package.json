@@ -22,6 +22,7 @@
     "spectron": "~3.2.2"
   },
   "dependencies": {
-    "electron-reload": "~1.0.0"
+    "electron-reload": "~1.0.0",
+    "jquery": "~2.2.4"
   }
 }
