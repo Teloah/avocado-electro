@@ -35,7 +35,7 @@ body {
 }
 
 #side-nav li {
-	padding: 10px;
+	margin: 0;
 }
 
 #side-nav li:hover {
@@ -43,12 +43,14 @@ body {
 }
 
 #side-nav a {
+	padding: 10px;
 	color: #ccc;
 	text-decoration: none;
+	display: block;
 }
 
 #side-nav a:hover {
-	color: yellow;
+	color: greenyellow;
 }
 
 #main {

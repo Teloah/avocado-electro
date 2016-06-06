@@ -10,7 +10,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1000, height: 600,	
     minHeight: 200, minWidth: 300,
-    icon: './resources/avocado.ico'
+    icon: './resources/avocado.png'
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   mainWindow.on('closed', function () {
