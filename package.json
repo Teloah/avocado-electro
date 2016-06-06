@@ -1,6 +1,6 @@
 {
   "name": "avocado-electro",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "An app to keep track of pending reports",
   "main": "app.js",
   "scripts": {
@@ -8,14 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/Teloah/avocado-electro.git"
   },
   "keywords": [
     "Avocado Lex",
-    "Reports"
+    "Reports",
+    "Electron"
   ],
   "author": "Andris Klaipins",
-  "license": "CC0-1.0",
+  "license": "GPL",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
     "spectron": "~3.2.2"
