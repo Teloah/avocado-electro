@@ -35,18 +35,22 @@ body {
 }
 
 #side-nav li:hover {
-	background-color: #555;
+	background-color: #444;
 }
 
-#side-nav a {
+.nav-btn {
 	padding: 10px;
 	color: #ccc;
 	text-decoration: none;
 	display: block;
 }
 
-#side-nav a:hover {
+.nav-btn:hover {
 	color: greenyellow;
+}
+
+.selected {
+	background-color: #555;
 }
 
 #main {
