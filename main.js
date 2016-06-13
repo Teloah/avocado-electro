@@ -4,6 +4,7 @@ function selectPage(id) {
 	$(".nav-btn").removeClass("selected");
 	var source = fs.readFileSync(__dirname + '/pages/' + id + '.html', "utf-8");
 	document.getElementById("main").innerHTML  = source;
+	document.getElementById("top-bar").innerHTML = '<p>' + id + '</p>';
 	$("#" + id).addClass("selected");
 }
 
@@ -12,5 +13,5 @@ $('.nav-btn').on('click', function() {
 });
 
 $(document).ready(function(){
-    selectPage("home");
+	selectPage("home");
 });
