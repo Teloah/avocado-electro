@@ -1,0 +1,49 @@
+Show that no reports are due this month
+  When there are no companies or reports, GUI shoud show a message about it
+
+Show single report (each month 15th)
+  When a single company has monthly report, it shows up in the GUI as incomplete
+
+Show multiple reports
+  When several companies has monthly reports, they all show up in the GUI as incomplete
+
+Add note to a report
+  When a report is shown in GUI, the user can add a note to it and it will persist between sessions
+
+Set a report as done
+  When an incomplete report is show in the GUI, the user can mark it as complete
+
+Hide completed reports
+  The user can hide completed reports from the GUI
+
+Emphasize overdue reports
+  If a report is overdue, it should be marked as such in the GUI
+
+Show only this month's reports
+  If a report has next month date, it should not show up in the GUI
+
+Show next month reports
+  The user can look at reports for the next month
+
+Reports have a start date
+  A report does not show up before its start date
+
+Add new report (the same "template", different company)
+  A user can add monthly report to a new company from the GUI
+
+Stop a report
+  A user can "stop" a report, so it will not show up after a defined date
+
+Different template
+  A user can add "quarterly" report to a new company from the GUI
+
+Quarterly report
+  Quarterly report calculates its next date
+
+Add template
+  Add a new template from the GUI
+
+Cannot add the same template for the same company twice
+  Combo? in the GUI does not offer this company?
+
+Rename company? Should we show the old name?
