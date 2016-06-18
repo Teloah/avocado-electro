@@ -4,7 +4,8 @@
   "description": "An app to keep track of pending reports",
   "main": "app.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron app.js",
+    "test": "node tests/end-to-end-tests.js"
   },
   "repository": {
     "type": "git",
