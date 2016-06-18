@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
-    "test": "node tests/end-to-end-tests.js"
+    "test": "ava tests"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
-    "spectron": "~3.2.2"
+    "spectron": "~3.2.2",
+    "ava": "~0.15.2"
   },
   "dependencies": {
     "electron-reload": "~1.0.0",
