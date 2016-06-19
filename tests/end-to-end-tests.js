@@ -41,7 +41,20 @@ describe('application launch', function () {
 
   it('shows no reports for empty config', function() {
     return this.app.client.waitUntilWindowLoaded()
-      .click("#home")
-      .getText("#no-reports").should.eventually.equal("No reports for this month");
+      .click('#home')
+      .getText('.no-data-yet').should.eventually.equal('No reports for this month');
   });
+
+  it('shows no templates for empty config', function() {
+    return this.app.client.waitUntilWindowLoaded()
+      .click('#templates')
+      .getText('.no-data-yet').should.eventually.equal('No templates yet');
+  });
+
+  it('shows no companies for empty config', function() {
+    return this.app.client.waitUntilWindowLoaded()
+      .click('#companies')
+      .getText('.no-data-yet').should.eventually.equal('No companies yet');
+  });
+
 });
