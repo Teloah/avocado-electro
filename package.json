@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
-    "test": "ava tests"
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,10 @@
   "author": "Andris Klaipins",
   "license": "GPL-3.0",
   "devDependencies": {
+    "chai": "3.5.0",
+    "chai-as-promised": "5.3.0",
     "electron-prebuilt": "^1.2.0",
-    "spectron": "~3.2.2",
-    "ava": "~0.15.2"
+    "spectron": "~3.2.2"
   },
   "dependencies": {
     "electron-reload": "~1.0.0",
