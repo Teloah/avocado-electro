@@ -16,7 +16,9 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-  // mainWindow.webContents.openDevTools();
+
+  var argv = require('yargs').argv;
+  console.log(argv);
 }
 
 app.on('ready', createWindow);

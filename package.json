@@ -4,7 +4,7 @@
   "description": "An app to keep track of pending reports",
   "main": "app.js",
   "scripts": {
-    "start": "electron app.js",
+    "start": "electron app.js --config=~/.avocado/electro/config.json --archive=~/.avocado/electro/archive.json",
     "test": "mocha tests"
   },
   "repository": {
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "electron-reload": "~1.0.0",
-    "jquery": "~2.2.4"
+    "jquery": "~2.2.4",
+    "yargs": "4.7.1"
   }
 }
