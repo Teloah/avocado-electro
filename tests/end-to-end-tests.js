@@ -1,10 +1,10 @@
-var Application = require('spectron').Application;
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-var path = require('path');
+const Application = require('spectron').Application,
+  chai = require('chai'),
+  chaiAsPromised = require('chai-as-promised'),
+  path = require('path');
 
-var appPath = path.resolve(__dirname, '../');
-var electronPath = path.resolve(__dirname, '../node_modules/.bin/electron');
+const appPath = path.resolve(__dirname, '../'),
+  electronPath = path.resolve(__dirname, '../node_modules/.bin/electron');
 
 chai.should();
 chai.use(chaiAsPromised);
@@ -39,19 +39,19 @@ describe('application launch', function () {
       .browserWindow.getBounds().should.eventually.have.property('height').and.be.above(0);
   });
 
-  it('shows no reports for empty config', function() {
+  it('shows no reports for empty config', function () {
     return this.app.client.waitUntilWindowLoaded()
       .click('#home')
       .getText('.no-data-yet').should.eventually.equal('No reports for this month');
   });
 
-  it('shows no templates for empty config', function() {
+  it('shows no templates for empty config', function () {
     return this.app.client.waitUntilWindowLoaded()
       .click('#templates')
       .getText('.no-data-yet').should.eventually.equal('No templates yet');
   });
 
-  it('shows no companies for empty config', function() {
+  it('shows no companies for empty config', function () {
     return this.app.client.waitUntilWindowLoaded()
       .click('#companies')
       .getText('.no-data-yet').should.eventually.equal('No companies yet');

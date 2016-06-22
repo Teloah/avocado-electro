@@ -8,10 +8,10 @@ function selectPage(id) {
 	$("#" + id).addClass("selected");
 }
 
-$('.nav-btn').on('click', function() {
+$('.nav-btn').on('click', function () {
 	selectPage(this.id);
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
 	selectPage("home");
 });

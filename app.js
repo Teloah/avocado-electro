@@ -8,7 +8,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1000, height: 600,	
+    width: 1000, height: 600,
     minHeight: 200, minWidth: 300,
     icon: './resources/avocado.png'
   });
