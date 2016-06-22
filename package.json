@@ -2,9 +2,9 @@
   "name": "avocado-electro",
   "version": "0.0.1",
   "description": "An app to keep track of pending reports",
-  "main": "app.js",
+  "main": "app/app.js",
   "scripts": {
-    "start": "electron app.js --config=~/.avocado/electro/config.json --archive=~/.avocado/electro/archive.json",
+    "start": "electron app/app.js --config=~/.avocado/electro/config.json --archive=~/.avocado/electro/archive.json",
     "test": "mocha tests"
   },
   "repository": {
