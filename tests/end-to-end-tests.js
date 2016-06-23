@@ -3,7 +3,7 @@ const Application = require('spectron').Application,
   chaiAsPromised = require('chai-as-promised'),
   path = require('path');
 
-const appPath = path.resolve(__dirname, '../app'),
+const appPath = path.resolve(__dirname, '../'),
   electronPath = path.resolve(__dirname, '../node_modules/.bin/electron');
 
 chai.should();

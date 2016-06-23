@@ -1,6 +1,7 @@
-const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const electron = require('electron'),
+  app = electron.app,
+  BrowserWindow = electron.BrowserWindow,
+  storage = require('./scripts/storage.js');
 
 require("electron-reload")(__dirname);
 
@@ -19,6 +20,8 @@ function createWindow() {
 
   var argv = require('yargs').argv;
   console.log(argv);
+  storage.setPath(argv.config);
+  console.log(storage.load());
 }
 
 app.on('ready', createWindow);
