@@ -12,4 +12,4 @@ Storage.prototype.setPath = function (path) {
     this.path = path;
 };
 
-module.exports = new Storage();
+module.exports = Storage;

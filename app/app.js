@@ -1,11 +1,12 @@
 const electron = require('electron'),
   app = electron.app,
   BrowserWindow = electron.BrowserWindow,
-  storage = require('./scripts/storage.js');
+  Storage = require('./scripts/storage.js');
 
 require("electron-reload")(__dirname);
 
 let mainWindow;
+let storage = new Storage();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
