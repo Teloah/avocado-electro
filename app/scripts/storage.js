@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 var Storage = function () {
     this.configPath = './data';
 };
@@ -11,5 +13,10 @@ Storage.prototype.getConfigPath = function () {
 Storage.prototype.setConfigPath = function (path) {
     this.configPath = path;
 };
+
+Storage.prototype.loadReports = function() {
+    var reports = fs.readFileSync(this.configPath + '/reports.json');
+    return JSON.parse(reports);
+}
 
 module.exports = Storage;
