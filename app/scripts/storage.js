@@ -1,15 +1,15 @@
 'use strict';
 
 var Storage = function () {
-    this.path = './data';
+    this.configPath = './data';
 };
 
-Storage.prototype.load = function () {
-    return "path:[" + this.path + "]";
+Storage.prototype.getConfigPath = function () {
+    return this.configPath;
 };
 
-Storage.prototype.setPath = function (path) {
-    this.path = path;
+Storage.prototype.setConfigPath = function (path) {
+    this.configPath = path;
 };
 
 module.exports = Storage;

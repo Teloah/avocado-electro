@@ -17,8 +17,8 @@ module.exports = function (grunt) {
             endtoend: {
                 src: ['tests/end-to-end-tests.js']
             },
-            unit: {
-                src: ['tests/unit/*.js']
+            integration: {
+                src: ['tests/integration/*.js']
             }
         }
     }
