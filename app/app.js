@@ -12,7 +12,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1000, height: 600,
     minHeight: 200, minWidth: 300,
-    icon: './resources/avocado.png'
+    icon: './app/resources/avocado.png'
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   mainWindow.on('closed', function () {
@@ -21,8 +21,7 @@ function createWindow() {
 
   var argv = require('yargs').argv;
   console.log(argv);
-  storage.setPath(argv.config);
-  console.log(storage.load());
+  storage.setConfigPath(argv.config);
 }
 
 app.on('ready', createWindow);
