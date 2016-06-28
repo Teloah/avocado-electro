@@ -31,5 +31,5 @@ describe('Storage', function () {
                 }
             ]
         });
-    })
+    });
 });

@@ -21,8 +21,10 @@ function createWindow() {
 
   var argv = require('yargs').argv;
   console.log(argv);
-  storage.setConfigPath(argv.config);
-}
+  if (argv.config) {
+    storage.setConfigPath(argv.config);
+  };
+};
 
 app.on('ready', createWindow);
 
