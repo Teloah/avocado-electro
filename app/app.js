@@ -23,7 +23,13 @@ function createWindow() {
   console.log(argv);
   if (argv.config) {
     storage.setConfigPath(argv.config);
+  } else {
+    storage.setConfigPath('./app/db');
   };
+  var reports = storage.loadReports();
+  reports.reports.forEach(function(report) {
+    console.log(report);
+  });
 };
 
 app.on('ready', createWindow);

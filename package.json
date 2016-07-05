@@ -4,7 +4,7 @@
   "description": "An app to keep track of pending reports",
   "main": "app/app.js",
   "scripts": {
-    "start": "electron app/app.js --config=~/.avocado/electro/config.json --archive=~/.avocado/electro/archive.json",
+    "start": "electron app/app.js --config=app/db",
     "test": "mocha tests"
   },
   "repository": {
