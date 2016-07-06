@@ -3,10 +3,20 @@ const electron = require('electron'),
   BrowserWindow = electron.BrowserWindow,
   Storage = require('./scripts/storage.js');
 
+const {ipcMain} = require('electron');
+
 require("electron-reload")(__dirname);
 
 let mainWindow;
 let storage = new Storage();
+
+ipcMain.on('load-reports', (event, arg) => {
+  var data = storage.loadReports();
+  data.reports.forEach(function (report) {
+    console.log(report);
+  });
+  event.sender.send('reports-loaded', data.reports);
+});
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -26,10 +36,6 @@ function createWindow() {
   } else {
     storage.setConfigPath('./app/db');
   };
-  var reports = storage.loadReports();
-  reports.reports.forEach(function(report) {
-    console.log(report);
-  });
 };
 
 app.on('ready', createWindow);

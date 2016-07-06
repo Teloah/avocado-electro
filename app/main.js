@@ -1,4 +1,15 @@
-var fs = require("fs");
+const fs = require("fs");
+const {ipcRenderer} = require('electron');
+
+ipcRenderer.on('reports-loaded', (event, reports) => {
+	console.log(reports);
+	var table_html = '<table>';
+	reports.forEach(function (report) {
+		table_html += `<tr><td>${report.report}</td><td>${report.company}</td><td>${report.date}</td><td>${report.comment}</td></tr>`;
+	});
+	table_html += '</table>';
+	$("#main").html(table_html);
+});
 
 function selectPage(id) {
 	$(".nav-btn").removeClass("selected");
@@ -14,4 +25,5 @@ $('.nav-btn').on('click', function () {
 
 $(document).ready(function () {
 	selectPage("home");
+	ipcRenderer.send('load-reports', '');
 });
