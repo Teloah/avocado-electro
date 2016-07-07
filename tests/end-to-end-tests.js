@@ -13,7 +13,7 @@ describe('application launch', function () {
   beforeEach(function () {
     this.app = new Application({
       path: electronPath,
-      args: [appPath]
+      args: [appPath, '--config=./tests/db']
     });
     return this.app.start();
   });
