@@ -19,7 +19,7 @@ function selectPage(id) {
 	$("#" + id).addClass("selected");
 }
 
-$('.nav-btn').on('click', () => {
+$('.nav-btn').on('click', function() {
 	selectPage(this.id);
 });
 
