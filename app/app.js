@@ -12,7 +12,7 @@ let storage = new Storage();
 
 ipcMain.on('load-reports', (event, arg) => {
   var data = storage.loadReports();
-  data.reports.forEach(function (report) {
+  data.reports.forEach(report => {
     console.log(report);
   });
   event.sender.send('reports-loaded', data.reports);
@@ -25,7 +25,7 @@ function createWindow() {
     icon: './app/resources/avocado.png'
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 
@@ -40,6 +40,6 @@ function createWindow() {
 
 app.on('ready', createWindow);
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   app.quit();
 });

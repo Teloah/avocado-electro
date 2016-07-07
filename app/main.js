@@ -4,7 +4,7 @@ const {ipcRenderer} = require('electron');
 ipcRenderer.on('reports-loaded', (event, reports) => {
 	console.log(reports);
 	var table_html = '<table>';
-	reports.forEach(function (report) {
+	reports.forEach(report => {
 		table_html += `<tr><td>${report.report}</td><td>${report.company}</td><td>${report.date}</td><td>${report.comment}</td></tr>`;
 	});
 	table_html += '</table>';
@@ -19,11 +19,11 @@ function selectPage(id) {
 	$("#" + id).addClass("selected");
 }
 
-$('.nav-btn').on('click', function () {
+$('.nav-btn').on('click', () => {
 	selectPage(this.id);
 });
 
-$(document).ready(function () {
+$(document).ready(() => {
 	selectPage("home");
 	ipcRenderer.send('load-reports', '');
 });
