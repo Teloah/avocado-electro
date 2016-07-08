@@ -10,7 +10,7 @@ require("electron-reload")(__dirname);
 let mainWindow;
 let storage = new Storage();
 
-ipcMain.on('load-reports', (event, arg) => {
+ipcMain.on('load-reports', (event) => {
   var data = storage.loadReports();
   data.reports.forEach(report => {
     console.log(report);
@@ -35,8 +35,8 @@ function createWindow() {
     storage.setConfigPath(argv.config);
   } else {
     storage.setConfigPath('./app/db');
-  };
-};
+  }
+}
 
 app.on('ready', createWindow);
 

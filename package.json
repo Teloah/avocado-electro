@@ -18,6 +18,15 @@
   ],
   "author": "Andris Klaipins",
   "license": "GPL-3.0",
+  "jshintConfig" : {
+    "esversion": 6,
+    "browser": true,
+    "jquery": true,
+    "node": true,
+    "mocha" : true,
+    "undef": true,
+    "unused": true
+  },
   "devDependencies": {
     "chai": "3.5.0",
     "chai-as-promised": "5.3.0",

@@ -17,6 +17,6 @@ Storage.prototype.setConfigPath = function (path) {
 Storage.prototype.loadReports = function() {
     var reports = fs.readFileSync(this.configPath + '/reports.json');
     return JSON.parse(reports);
-}
+};
 
 module.exports = Storage;
