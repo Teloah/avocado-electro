@@ -1,6 +1,4 @@
-const electron = require('electron'),
-  app = electron.app,
-  BrowserWindow = electron.BrowserWindow,
+const {app, BrowserWindow} = require('electron'),
   Storage = require('./scripts/storage.js');
 
 const {ipcMain} = require('electron');
