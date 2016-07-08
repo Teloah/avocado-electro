@@ -1,5 +1,5 @@
 const fs = require("fs"),
-	HomePresenter = require('./scripts/home.js');
+	HomePresenter = require('./pages/home.js');
 
 const presenters = new Map();
 presenters.set('home', new HomePresenter());
