@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-var Storage = function () {
+let Storage = function () {
     this.configPath = './data';
 };
 
@@ -15,7 +15,7 @@ Storage.prototype.setConfigPath = function (path) {
 };
 
 Storage.prototype.loadReports = function() {
-    var reports = fs.readFileSync(this.configPath + '/reports.json');
+    let reports = fs.readFileSync(this.configPath + '/reports.json');
     return JSON.parse(reports);
 };
 
