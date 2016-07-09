@@ -12,13 +12,12 @@ ipcRenderer.on('reports-loaded', (event, reports) => {
 	$("#main").html(table_html);
 });
 
-function loadReports() {
-	ipcRenderer.send('load-reports', '');
-}
-
 class HomePresenter {
+	loadReports() {
+		ipcRenderer.send('load-reports', '');
+	}
     show() {
-        loadReports();
+        this.loadReports();
     }
 }
 

@@ -10,9 +10,6 @@ let storage = new Storage();
 
 ipcMain.on('load-reports', (event) => {
   let data = storage.loadReports();
-  data.reports.forEach(report => {
-    console.log(report);
-  });
   event.sender.send('reports-loaded', data.reports);
 });
 
@@ -28,12 +25,8 @@ function createWindow() {
   });
 
   let argv = require('yargs').argv;
-  console.log(argv);
-  if (argv.config) {
-    storage.setConfigPath(argv.config);
-  } else {
-    storage.setConfigPath('./app/db');
-  }
+  let configPath = argv.config ? argv.config : './app/db';
+  storage.setConfigPath(configPath);
 }
 
 app.on('ready', createWindow);
