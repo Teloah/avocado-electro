@@ -1,7 +1,8 @@
 const Application = require('spectron').Application,
   chai = require('chai'),
   chaiAsPromised = require('chai-as-promised'),
-  path = require('path');
+  path = require('path'),
+  fs = require('fs');
 
 const appPath = path.resolve(__dirname, '../'),
   electronPath = path.resolve(__dirname, '../node_modules/.bin/electron');
@@ -11,6 +12,7 @@ chai.use(chaiAsPromised);
 
 describe('application launch', function () {
   beforeEach(function () {
+    fs.writeFileSync(`${appPath}/tests/db/reports.json`, '{"reports":[]}');
     this.app = new Application({
       path: electronPath,
       args: [appPath, '--config=./tests/db']
