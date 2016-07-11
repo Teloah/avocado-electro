@@ -4,9 +4,14 @@ ipcRenderer.on('reports-loaded', (event, reports) => {
 	if (reports.length === 0) {
 		return;
 	}
-	let table_html = '<table>';
+	let table_html = '<table class="reports"><tr><th>Date</th><th>Name</th><th>Company</th><th>Comments</th></tr>';
 	reports.forEach(report => {
-		table_html += `<tr><td>${report.report}</td><td>${report.company}</td><td>${report.date}</td><td>${report.comment}</td></tr>`;
+		table_html += `<tr class="report">`;
+		table_html += `<td class="report_date">${report.date}</td>`;
+		table_html += `<td class="report_name">${report.report}</td>`;
+		table_html += `<td class="report_company">${report.company}</td>`;
+		table_html += `<td class="report_comment">${report.comment}</td>`;
+		table_html += `</tr>`;
 	});
 	table_html += '</table>';
 	$("#main").html(table_html);

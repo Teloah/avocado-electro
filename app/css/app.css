@@ -90,3 +90,15 @@ nav ul {
 	text-align: center;
 	margin: 0 20% 0;
 }
+
+.reports {
+	border: 1px solid lawngreen;
+}
+
+.report {
+	border: 1px solid red;
+}
+
+.report_name {
+	color: green;
+}

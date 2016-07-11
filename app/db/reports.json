@@ -1,4 +1,5 @@
 {"reports":[
     {"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"},
-    {"report":"IIA","company":"Other Company","date":"20170130","comment":"No comments"}
+    {"report":"IIA","company":"Other Company","date":"20170130","comment":"No comments"},
+    {"report":"VSA","company":"Some Company","date":"20170131","comment":""}
 ]}
