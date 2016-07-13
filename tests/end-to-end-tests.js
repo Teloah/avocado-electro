@@ -59,4 +59,17 @@ describe('application launch', function () {
       .getText('.no-data-yet').should.eventually.equal('No companies yet');
   });
 
+  it('shows a single report', function () {
+    let data = '{"reports":[{"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"}]}';
+    fs.writeFileSync('./tests/db/reports.json', data);
+
+    return this.app.client.waitUntilWindowLoaded()
+      .click('#companies')
+      .click('#home')
+      .getText('.report_date').should.eventually.equal('20161231')
+      .getText('.report_name').should.eventually.equal('VSA')
+      .getText('.report_company').should.eventually.equal('TestCompany')
+      .getText('.report_comment').should.eventually.equal('Comment');
+  });
+
 });
