@@ -59,17 +59,37 @@ describe('application launch', function () {
       .getText('.no-data-yet').should.eventually.equal('No companies yet');
   });
 
-  it('shows a single report', function () {
-    let data = '{"reports":[{"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"}]}';
+  it('shows single report', function () {
+    let data = '{"reports":[{"report":"VSA","company":"TestCompany","date":"20160715","comment":"Comment"}]}';
     fs.writeFileSync('./tests/db/reports.json', data);
 
     return this.app.client.waitUntilWindowLoaded()
       .click('#companies')
       .click('#home')
-      .getText('.report_date').should.eventually.equal('20161231')
+      .getText('.report_date').should.eventually.equal('20160715')
       .getText('.report_name').should.eventually.equal('VSA')
       .getText('.report_company').should.eventually.equal('TestCompany')
       .getText('.report_comment').should.eventually.equal('Comment');
+  });
+
+  it('shows several reports', function () {
+    let data = `{"reports":[
+        {"report":"VSA","company":"TestCompany","date":"20160715","comment":"Comment"},
+        {"report":"PVN","company":"Other Company","date":"20160720","comment":"No comments"}
+      ]}`;
+    fs.writeFileSync('./tests/db/reports.json', data);
+
+    return this.app.client.waitUntilWindowLoaded()
+      .click('#companies')
+      .click('#home')
+      .getText('.report:nth-of-type(2) .report_date').should.eventually.equal('20160715')
+      .getText('.report:nth-of-type(2) .report_name').should.eventually.equal('VSA')
+      .getText('.report:nth-of-type(2) .report_company').should.eventually.equal('TestCompany')
+      .getText('.report:nth-of-type(2) .report_comment').should.eventually.equal('Comment')
+      .getText('.report:nth-of-type(3) .report_date').should.eventually.equal('20160720')
+      .getText('.report:nth-of-type(3) .report_name').should.eventually.equal('PVN')
+      .getText('.report:nth-of-type(3) .report_company').should.eventually.equal('Other Company')
+      .getText('.report:nth-of-type(3) .report_comment').should.eventually.equal('No comments');
   });
 
 });
