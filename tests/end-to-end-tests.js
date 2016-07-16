@@ -82,14 +82,14 @@ describe('application launch', function () {
     return this.app.client.waitUntilWindowLoaded()
       .click('#companies')
       .click('#home')
-      .getText('.report:nth-of-type(2) .report_date').should.eventually.equal('20160715')
-      .getText('.report:nth-of-type(2) .report_name').should.eventually.equal('VSA')
-      .getText('.report:nth-of-type(2) .report_company').should.eventually.equal('TestCompany')
-      .getText('.report:nth-of-type(2) .report_comment').should.eventually.equal('Comment')
-      .getText('.report:nth-of-type(3) .report_date').should.eventually.equal('20160720')
-      .getText('.report:nth-of-type(3) .report_name').should.eventually.equal('PVN')
-      .getText('.report:nth-of-type(3) .report_company').should.eventually.equal('Other Company')
-      .getText('.report:nth-of-type(3) .report_comment').should.eventually.equal('No comments');
+      .getText('.report:nth-child(1) .report_date').should.eventually.equal('20160715')
+      .getText('.report:nth-child(1) .report_name').should.eventually.equal('VSA')
+      .getText('.report:nth-child(1) .report_company').should.eventually.equal('TestCompany')
+      .getText('.report:nth-child(1) .report_comment').should.eventually.equal('Comment')
+      .getText('.report:nth-child(2) .report_date').should.eventually.equal('20160720')
+      .getText('.report:nth-child(2) .report_name').should.eventually.equal('PVN')
+      .getText('.report:nth-child(2) .report_company').should.eventually.equal('Other Company')
+      .getText('.report:nth-child(2) .report_comment').should.eventually.equal('No comments');
   });
 
 });
