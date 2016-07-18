@@ -12,7 +12,9 @@ chai.use(chaiAsPromised);
 
 describe('application launch', function () {
   beforeEach(function () {
-    fs.writeFileSync(`${appPath}/tests/db/reports.json`, '{"reports":[]}');
+    fs.writeFileSync(`${appPath}/tests/db/companies.json`, '{"companies":[]}');
+    fs.writeFileSync(`${appPath}/tests/db/templates.json`, '{"templates":[]}');
+    fs.writeFileSync(`${appPath}/tests/db/entries.json`, '{"entries":[]}');
     this.app = new Application({
       path: electronPath,
       args: [appPath, '--config=./tests/db']
@@ -59,9 +61,9 @@ describe('application launch', function () {
       .getText('.no-data-yet').should.eventually.equal('No companies yet');
   });
 
-  it('shows single report', function () {
-    let data = '{"reports":[{"report":"VSA","company":"TestCompany","date":"20160715","comment":"Comment"}]}';
-    fs.writeFileSync('./tests/db/reports.json', data);
+  it('shows single already saved report entry', function () {
+    let data = '{"entries":[{"report":"VSA","company":"TestCompany","date":"20160715","comment":"Comment"}]}';
+    fs.writeFileSync('./tests/db/entries.json', data);
 
     return this.app.client.waitUntilWindowLoaded()
       .click('#companies')
@@ -72,12 +74,12 @@ describe('application launch', function () {
       .getText('.report_comment').should.eventually.equal('Comment');
   });
 
-  it('shows several reports', function () {
-    let data = `{"reports":[
+  it('shows several saved report entries', function () {
+    let data = `{"entries":[
         {"report":"VSA","company":"TestCompany","date":"20160715","comment":"Comment"},
         {"report":"PVN","company":"Other Company","date":"20160720","comment":"No comments"}
       ]}`;
-    fs.writeFileSync('./tests/db/reports.json', data);
+    fs.writeFileSync('./tests/db/entries.json', data);
 
     return this.app.client.waitUntilWindowLoaded()
       .click('#companies')

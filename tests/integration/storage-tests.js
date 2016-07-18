@@ -14,21 +14,47 @@ describe('Storage', function () {
         path.should.equal('the/path');
     });
 
-    it('can load reports', function () {
-        let data = '{"reports":[{"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"}]}';
-        fs.writeFileSync('./tests/db/reports.json', data);
+    it('can load already saved report entries', function () {
+        let data = '{"entries":[{"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"}]}';
+        fs.writeFileSync('./tests/db/entries.json', data);
         this.storage.setConfigPath('tests/db');
 
-        let reports = this.storage.loadReports();
+        let entries = this.storage.loadEntries();
 
-        reports.should.deep.equal({
-            reports: [
-                {
-                    report: "VSA",
-                    company: "TestCompany",
-                    date: "20161231",
-                    comment: "Comment"
-                }
+        entries.should.deep.equal({
+            entries: [
+                { report: "VSA", company: "TestCompany", date: "20161231", comment: "Comment" }
+            ]
+        });
+    });
+
+    it('can load companies', function () {
+        let data = '{"companies":["Company1", "Company2"]}';
+        fs.writeFileSync('./tests/db/companies.json', data);
+        this.storage.setConfigPath('tests/db');
+
+        let companies = this.storage.loadCompanies();
+
+        companies.should.deep.equal({
+            companies: [
+                "Company1",
+                "Company2"
+            ]
+        });
+    });
+
+    it('can load templates', function () {
+        let data = `{"templates":[
+            {"name":"VSA", "type":"MONTHLY", "config":"15"}
+        ]}`;
+        fs.writeFileSync('./tests/db/templates.json', data);
+        this.storage.setConfigPath('tests/db');
+
+        let templates = this.storage.loadTemplates();
+
+        templates.should.deep.equal({
+            templates: [
+                { name: "VSA", type: "MONTHLY", config: "15" }
             ]
         });
     });

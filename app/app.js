@@ -9,8 +9,8 @@ let mainWindow;
 let storage = new Storage();
 
 ipcMain.on('load-reports', (event) => {
-  let data = storage.loadReports();
-  event.sender.send('reports-loaded', data.reports);
+  let data = storage.loadEntries();
+  event.sender.send('reports-loaded', data.entries);
 });
 
 function createWindow() {
