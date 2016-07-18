@@ -1,0 +1,22 @@
+{
+    "entries": [
+        {
+            "report": "VSA",
+            "company": "TestCompany",
+            "date": "20160715",
+            "comment": "Comment"
+        },
+        {
+            "report": "IIA",
+            "company": "Other Company",
+            "date": "20170715",
+            "comment": "No comments"
+        },
+        {
+            "report": "VSA",
+            "company": "Some Company",
+            "date": "20170715",
+            "comment": ""
+        }
+    ]
+}

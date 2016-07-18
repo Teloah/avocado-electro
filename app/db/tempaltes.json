@@ -1,0 +1,14 @@
+{
+    "templates": [
+        {
+            "name": "VSA",
+            "type": "MONTHLY",
+            "config": "15"
+        },
+        {
+            "name": "IIA",
+            "type": "MONTHLY",
+            "config": "15"
+        }
+    ]
+}
