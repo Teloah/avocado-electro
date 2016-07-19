@@ -2,7 +2,7 @@ const {ipcRenderer} = require('electron');
 
 class HomePresenter {
 	loadReports() {
-		ipcRenderer.send('load-reports', '');
+		ipcRenderer.send('load-entries', '');
 	}
     show() {
         this.loadReports();
@@ -26,11 +26,11 @@ function formatReportsDOM(reports) {
 	return table_html;
 }
 
-ipcRenderer.on('reports-loaded', (event, reports) => {
-	if (reports.length === 0) {
+ipcRenderer.on('entries-loaded', (event, entries) => {
+	if (entries.length === 0) {
 		return;
 	}
-	let reports_html = formatReportsDOM(reports);
-	$("#main").html(reports_html);
+	let entries_html = formatReportsDOM(entries);
+	$("#main").html(entries_html);
 });
 

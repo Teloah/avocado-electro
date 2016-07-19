@@ -8,9 +8,9 @@ require("electron-reload")(__dirname);
 let mainWindow;
 let storage = new Storage();
 
-ipcMain.on('load-reports', (event) => {
+ipcMain.on('load-entries', (event) => {
   let data = storage.loadEntries();
-  event.sender.send('reports-loaded', data.entries);
+  event.sender.send('entries-loaded', data.entries);
 });
 
 function createWindow() {
