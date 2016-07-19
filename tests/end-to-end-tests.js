@@ -14,6 +14,7 @@ describe('application launch', function () {
   beforeEach(function () {
     fs.writeFileSync(`${appPath}/tests/db/companies.json`, '{"companies":[]}');
     fs.writeFileSync(`${appPath}/tests/db/templates.json`, '{"templates":[]}');
+    fs.writeFileSync(`${appPath}/tests/db/reports.json`, '{"reports":[]}');
     fs.writeFileSync(`${appPath}/tests/db/entries.json`, '{"entries":[]}');
     this.app = new Application({
       path: electronPath,
@@ -92,6 +93,23 @@ describe('application launch', function () {
       .getText('.report:nth-child(2) .report_name').should.eventually.equal('PVN')
       .getText('.report:nth-child(2) .report_company').should.eventually.equal('Other Company')
       .getText('.report:nth-child(2) .report_comment').should.eventually.equal('No comments');
+  });
+
+  it('creates a new entry from config and shows it', function () {
+    let data = `{"companies":["TestCompany"]}`;
+    fs.writeFileSync('./tests/db/companies.json', data);
+    data = `{"templates":[{"name":"TEST","type":"MONTHLY","config":"15"}]}`;
+    fs.writeFileSync('./tests/db/templates.json', data);
+    data = `{"reports":[{"company":"TestCompany","template":"TEST"}]}`;
+    fs.writeFileSync('./tests/db/reports.json', data);
+
+    return this.app.client.waitUntilWindowLoaded()
+      .click('#companies')
+      .click('#home')
+      .getText('.report_date').should.eventually.equal('20160715')
+      .getText('.report_name').should.eventually.equal('TEST')
+      .getText('.report_company').should.eventually.equal('TestCompany')
+      .getText('.report_comment').should.eventually.equal('');
   });
 
 });

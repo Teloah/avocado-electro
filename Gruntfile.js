@@ -19,6 +19,9 @@ module.exports = function (grunt) {
             },
             integration: {
                 src: ['tests/integration/*.js']
+            },
+            unit: {
+                src: ['tests/unit/*.js']
             }
         }
     }

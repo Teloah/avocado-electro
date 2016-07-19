@@ -1,5 +1,6 @@
 const {app, BrowserWindow} = require('electron'),
-  Storage = require('./scripts/storage.js');
+  Storage = require('./scripts/storage.js'),
+  Report = require('./scripts/reports.js');
 
 const {ipcMain} = require('electron');
 
@@ -8,8 +9,20 @@ require("electron-reload")(__dirname);
 let mainWindow;
 let storage = new Storage();
 
+function parseEntries(companies, templates, reports) {
+  let report = new Report();
+  return report.parseEntries(companies, templates, reports);
+}
+
 ipcMain.on('load-entries', (event) => {
   let data = storage.loadEntries();
+  let companies = storage.loadCompanies();
+  let templates = storage.loadTemplates();
+  let reports = storage.loadReports();
+  let entries = parseEntries(companies, templates, reports);
+  entries.forEach(entry => {
+    data.entries.push(entry);
+  });
   event.sender.send('entries-loaded', data.entries);
 });
 

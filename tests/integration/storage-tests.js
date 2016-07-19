@@ -58,4 +58,18 @@ describe('Storage', function () {
             ]
         });
     });
+
+    it('can load reports', function () {
+        let data = `{"reports":[{"company":"TestCompany", "template":"TEST"}]}`;
+        fs.writeFileSync('./tests/db/reports.json', data);
+        this.storage.setConfigPath('tests/db');
+
+        let templates = this.storage.loadReports();
+
+        templates.should.deep.equal({
+            reports: [
+                { company: "TestCompany", template: "TEST" }
+            ]
+        });
+    });
 });

@@ -20,11 +20,16 @@ Storage.prototype.loadEntries = function () {
 Storage.prototype.loadCompanies = function () {
     let companies = fs.readFileSync(this.configPath + '/companies.json');
     return JSON.parse(companies);
-}
+};
 
 Storage.prototype.loadTemplates = function () {
     let templates = fs.readFileSync(this.configPath + '/templates.json');
     return JSON.parse(templates);
-}
+};
+
+Storage.prototype.loadReports = function () {
+    let reports = fs.readFileSync(this.configPath + '/reports.json');
+    return JSON.parse(reports);
+};
 
 module.exports = Storage;
