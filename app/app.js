@@ -21,9 +21,9 @@ ipcMain.on('load-entries', (event) => {
   let reports = storage.loadReports();
   let entries = parseEntries(companies, templates, reports);
   entries.forEach(entry => {
-    data.entries.push(entry);
+    data.push(entry);
   });
-  event.sender.send('entries-loaded', data.entries);
+  event.sender.send('entries-loaded', data);
 });
 
 function createWindow() {

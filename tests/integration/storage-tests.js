@@ -21,11 +21,7 @@ describe('Storage', function () {
 
         let entries = this.storage.loadEntries();
 
-        entries.should.deep.equal({
-            entries: [
-                { report: "VSA", company: "TestCompany", date: "20161231", comment: "Comment" }
-            ]
-        });
+        entries.should.deep.equal([{ report: "VSA", company: "TestCompany", date: "20161231", comment: "Comment" }]);
     });
 
     it('can load companies', function () {
@@ -35,12 +31,7 @@ describe('Storage', function () {
 
         let companies = this.storage.loadCompanies();
 
-        companies.should.deep.equal({
-            companies: [
-                "Company1",
-                "Company2"
-            ]
-        });
+        companies.should.deep.equal(["Company1", "Company2"]);
     });
 
     it('can load templates', function () {
@@ -52,11 +43,7 @@ describe('Storage', function () {
 
         let templates = this.storage.loadTemplates();
 
-        templates.should.deep.equal({
-            templates: [
-                { name: "VSA", type: "MONTHLY", config: "15" }
-            ]
-        });
+        templates.should.deep.equal([{ name: "VSA", type: "MONTHLY", config: "15" }]);
     });
 
     it('can load reports', function () {
@@ -66,10 +53,6 @@ describe('Storage', function () {
 
         let templates = this.storage.loadReports();
 
-        templates.should.deep.equal({
-            reports: [
-                { company: "TestCompany", template: "TEST" }
-            ]
-        });
+        templates.should.deep.equal([{ company: "TestCompany", template: "TEST" }]);
     });
 });
