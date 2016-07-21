@@ -3,11 +3,13 @@ class Report {
         let entries = [];
         companies.forEach(company => {
             reports.forEach(report => {
-                templates.forEach(template => {
-                    if (template.name === report.template) {
-                        entries.push({ report: `${report.template}`, company: `${company}`, date: `201607${template.config}`, comment: `` });
-                    };
-                });
+                if (report.company === company) {
+                    templates.forEach(template => {
+                        if (template.name === report.template) {
+                            entries.push({ report: `${report.template}`, company: `${company}`, date: `201607${template.config}`, comment: `` });
+                        }
+                    });
+                }
             });
         });
         return entries;

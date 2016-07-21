@@ -34,4 +34,18 @@ describe('Report', function () {
             { company: "TestCompany", report: "Template2", date: "20160720", comment: "" }]
         );
     });
+
+    it('combines several companies with different templates into entries', function () {
+        let entries = this.report.parseEntries(
+            ["TestCompany", 'TestCompany2'],
+            [{ name: "Template1", type: "MONTHLY", config: "15" },
+                { name: "Template2", type: "MONTHLY", config: "20" }],
+            [{ company: "TestCompany", template: "Template1" },
+                { company: "TestCompany2", template: "Template2" }]
+        );
+        entries.should.deep.equal([
+            { company: "TestCompany", report: "Template1", date: "20160715", comment: "" },
+            { company: "TestCompany2", report: "Template2", date: "20160720", comment: "" }]
+        );
+    });
 });
