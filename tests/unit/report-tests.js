@@ -20,4 +20,18 @@ describe('Report', function () {
         );
         entries.should.deep.equal([{ company: "TestCompany", report: "VSA", date: "20160715", comment: "" }]);
     });
+
+    it('combines one company and several templates into entries', function () {
+        let entries = this.report.parseEntries(
+            ["TestCompany"],
+            [{ name: "Template1", type: "MONTHLY", config: "15" },
+                { name: "Template2", type: "MONTHLY", config: "20" }],
+            [{ company: "TestCompany", template: "Template1" },
+                { company: "TestCompany", template: "Template2" }]
+        );
+        entries.should.deep.equal([
+            { company: "TestCompany", report: "Template1", date: "20160715", comment: "" },
+            { company: "TestCompany", report: "Template2", date: "20160720", comment: "" }]
+        );
+    });
 });
