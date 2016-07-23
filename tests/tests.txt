@@ -47,5 +47,3 @@ Cannot add the same template for the same company twice
   Combo? in the GUI does not offer this company?
 
 Rename company? Should we show the old name?
-
-TODO: use maps for template lookups

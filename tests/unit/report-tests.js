@@ -10,11 +10,11 @@ describe('Report', function () {
     });
 
     it('combines one company and template into an entry', function () {
-        let report = new Report(
-            ["TestCompany"],
-            [{ name: "VSA", type: "MONTHLY", config: "15" }],
-            [{ company: "TestCompany", template: "VSA" }]
-        );
+        let templates = new Map();
+        templates.set("VSA", { name: "VSA", type: "MONTHLY", config: "15" });
+        let reports = new Map();
+        reports.set("TestCompany", ["VSA"]);
+        let report = new Report(["TestCompany"], templates, reports);
         let entries = report.parseEntries();
         entries.should.deep.equal([{ company: "TestCompany", report: "VSA", date: "20160715", comment: "" }]);
     });
@@ -22,10 +22,13 @@ describe('Report', function () {
     it('combines one company and several templates into entries', function () {
         let report = new Report(
             ["TestCompany"],
-            [{ name: "Template1", type: "MONTHLY", config: "15" },
-                { name: "Template2", type: "MONTHLY", config: "20" }],
-            [{ company: "TestCompany", template: "Template1" },
-                { company: "TestCompany", template: "Template2" }]
+            new Map([
+                ["Template1", { name: "Template1", type: "MONTHLY", config: "15" }],
+                ["Template2", { name: "Template2", type: "MONTHLY", config: "20" }]
+            ]),
+            new Map([
+                ["TestCompany", ["Template1", "Template2"]],
+            ])
         );
         let entries = report.parseEntries();
         entries.should.deep.equal([
@@ -37,10 +40,14 @@ describe('Report', function () {
     it('combines several companies with different templates into entries', function () {
         let report = new Report(
             ["TestCompany", 'TestCompany2'],
-            [{ name: "Template1", type: "MONTHLY", config: "15" },
-                { name: "Template2", type: "MONTHLY", config: "20" }],
-            [{ company: "TestCompany", template: "Template1" },
-                { company: "TestCompany2", template: "Template2" }]
+            new Map([
+                ["Template1", { name: "Template1", type: "MONTHLY", config: "15" }],
+                ["Template2", { name: "Template2", type: "MONTHLY", config: "20" }]
+            ]),
+            new Map([
+                ["TestCompany", ["Template1"]],
+                ["TestCompany2", ["Template2"]]
+            ])
         );
         let entries = report.parseEntries();
         entries.should.deep.equal([

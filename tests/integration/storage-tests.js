@@ -36,23 +36,30 @@ describe('Storage', function () {
 
     it('can load templates', function () {
         let data = `{"templates":[
-            {"name":"VSA", "type":"MONTHLY", "config":"15"}
+            {"name":"VSA", "type":"MONTHLY", "config":"15"},
+            {"name":"TST", "type":"MONTHLY", "config":"20"}
         ]}`;
         fs.writeFileSync('./tests/db/templates.json', data);
         this.storage.setConfigPath('tests/db');
 
         let templates = this.storage.loadTemplates();
 
-        templates.should.deep.equal([{ name: "VSA", type: "MONTHLY", config: "15" }]);
+        templates.get('VSA').should.deep.equal({ name: "VSA", type: "MONTHLY", config: "15" });
+        templates.get('TST').should.deep.equal({ name: "TST", type: "MONTHLY", config: "20" });
     });
 
     it('can load reports', function () {
-        let data = `{"reports":[{"company":"TestCompany", "template":"TEST"}]}`;
+        let data = `{"reports":[
+            {"company":"TestCompany", "template":"TEST"},
+            {"company":"TestCompany2", "template":"VSA"},
+            {"company":"TestCompany", "template":"VSA"}
+            ]}`;
         fs.writeFileSync('./tests/db/reports.json', data);
         this.storage.setConfigPath('tests/db');
 
         let templates = this.storage.loadReports();
 
-        templates.should.deep.equal([{ company: "TestCompany", template: "TEST" }]);
+        templates.get('TestCompany').should.deep.equal(["TEST", "VSA"]);
+        templates.get('TestCompany2').should.deep.equal(["VSA"]);
     });
 });

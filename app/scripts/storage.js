@@ -13,23 +13,38 @@ Storage.prototype.setConfigPath = function (path) {
 };
 
 Storage.prototype.loadEntries = function () {
-    let entries = fs.readFileSync(this.configPath + '/entries.json');
+    const entries = fs.readFileSync(this.configPath + '/entries.json');
     return JSON.parse(entries).entries;
 };
 
 Storage.prototype.loadCompanies = function () {
-    let companies = fs.readFileSync(this.configPath + '/companies.json');
+    const companies = fs.readFileSync(this.configPath + '/companies.json');
     return JSON.parse(companies).companies;
 };
 
 Storage.prototype.loadTemplates = function () {
-    let templates = fs.readFileSync(this.configPath + '/templates.json');
-    return JSON.parse(templates).templates;
+    const templates_json = fs.readFileSync(this.configPath + '/templates.json');
+    const templates = JSON.parse(templates_json).templates;
+    let result = new Map();
+    templates.forEach(template => {
+        result.set(template.name, template);
+    });
+    return result;
 };
 
 Storage.prototype.loadReports = function () {
-    let reports = fs.readFileSync(this.configPath + '/reports.json');
-    return JSON.parse(reports).reports;
+    const reports_json = fs.readFileSync(this.configPath + '/reports.json');
+    const reports = JSON.parse(reports_json).reports;
+    let result = new Map();
+    reports.forEach(report => {
+        let arr = result.get(report.company);
+        if (arr === undefined) {
+            arr = [];
+            result.set(report.company, arr);
+        }
+        arr.push(report.template);
+    });
+    return result;
 };
 
 module.exports = Storage;
