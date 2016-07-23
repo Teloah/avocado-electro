@@ -1,23 +1,34 @@
 class Report {
-    reportsFor(company, all_reports) {
-        let reports = [];
-        all_reports.forEach(report => {
-            if (report.company === company) {
-                reports.push(report);
+    constructor(companies, templates, reports) {
+        this.companies = companies;
+        this.reports = reports;
+        this.templates = templates;
+    }
+    templateByName(name) {
+        let result = {};
+        this.templates.forEach(template => {
+            if (template.name === name) {
+                result = template;
             }
         });
-        return reports;
+        return result;
     }
-    parseEntries(companies, templates, reports) {
+    reportsFor(company) {
+        let result = [];
+        this.reports.forEach(report => {
+            if (report.company === company) {
+                result.push(report);
+            }
+        });
+        return result;
+    }
+    parseEntries() {
         let entries = [];
-        companies.forEach(company => {
-            let company_reports = this.reportsFor(company, reports);
+        this.companies.forEach(company => {
+            let company_reports = this.reportsFor(company);
             company_reports.forEach(report => {
-                templates.forEach(template => {
-                    if (template.name === report.template) {
-                        entries.push({ report: `${report.template}`, company: `${company}`, date: `201607${template.config}`, comment: `` });
-                    }
-                });
+                let template = this.templateByName(report.template);
+                entries.push({ report: `${template.name}`, company: `${company}`, date: `201607${template.config}`, comment: `` });
             });
         });
         return entries;

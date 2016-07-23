@@ -10,8 +10,8 @@ let mainWindow;
 let storage = new Storage();
 
 function parseEntries(companies, templates, reports) {
-  let report = new Report();
-  return report.parseEntries(companies, templates, reports);
+  let report = new Report(companies, templates, reports);
+  return report.parseEntries();
 }
 
 ipcMain.on('load-entries', (event) => {
