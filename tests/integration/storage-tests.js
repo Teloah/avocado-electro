@@ -4,12 +4,9 @@ const chai = require('chai'),
 chai.should();
 
 describe('Storage', function () {
-    beforeEach(function () {
-        this.storage = new Storage();
-    });
 
     it('can set config path', function () {
-        this.storage.setConfigPath('the/path');
+        this.storage = new Storage('the/path');
         let path = this.storage.getConfigPath();
         path.should.equal('the/path');
     });
@@ -17,7 +14,7 @@ describe('Storage', function () {
     it('can load already saved report entries', function () {
         let data = '{"entries":[{"report":"VSA","company":"TestCompany","date":"20161231","comment":"Comment"}]}';
         fs.writeFileSync('./tests/db/entries.json', data);
-        this.storage.setConfigPath('tests/db');
+        this.storage = new Storage('tests/db');
 
         let entries = this.storage.loadEntries();
 
@@ -27,7 +24,7 @@ describe('Storage', function () {
     it('can load companies', function () {
         let data = '{"companies":["Company1", "Company2"]}';
         fs.writeFileSync('./tests/db/companies.json', data);
-        this.storage.setConfigPath('tests/db');
+        this.storage = new Storage('tests/db');
 
         let companies = this.storage.loadCompanies();
 
@@ -40,7 +37,7 @@ describe('Storage', function () {
             {"name":"TST", "type":"MONTHLY", "config":"20"}
         ]}`;
         fs.writeFileSync('./tests/db/templates.json', data);
-        this.storage.setConfigPath('tests/db');
+        this.storage = new Storage('tests/db');
 
         let templates = this.storage.loadTemplates();
 
@@ -55,7 +52,7 @@ describe('Storage', function () {
             {"company":"TestCompany", "template":"VSA"}
             ]}`;
         fs.writeFileSync('./tests/db/reports.json', data);
-        this.storage.setConfigPath('tests/db');
+        this.storage = new Storage('tests/db');
 
         let templates = this.storage.loadReports();
 

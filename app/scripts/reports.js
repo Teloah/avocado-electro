@@ -1,8 +1,8 @@
 class Report {
-    constructor(companies, templates, reports) {
-        this.companies = companies;
-        this.reports = reports;
-        this.templates = templates;
+    constructor(storage) {
+        this.companies = storage.loadCompanies();
+        this.templates = storage.loadTemplates();
+        this.reports = storage.loadReports();
     }
     parseEntries() {
         let entries = [];

@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 class Storage {
-    constructor() {
-        this.configPath = './data';
+    constructor(dataPath) {
+        this.configPath = dataPath;
     }
     getConfigPath() {
         return this.configPath;

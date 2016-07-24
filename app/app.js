@@ -7,19 +7,18 @@ const {ipcMain} = require('electron');
 require("electron-reload")(__dirname);
 
 let mainWindow;
-let storage = new Storage();
 
-function parseEntries(companies, templates, reports) {
-  let report = new Report(companies, templates, reports);
+let argv = require('yargs').argv;
+let storage = new Storage(argv.config ? argv.config : './app/db');
+
+function loadEntries() {
+  let report = new Report(storage);
   return report.parseEntries();
 }
 
 ipcMain.on('load-entries', (event) => {
   let data = storage.loadEntries();
-  let companies = storage.loadCompanies();
-  let templates = storage.loadTemplates();
-  let reports = storage.loadReports();
-  let entries = parseEntries(companies, templates, reports);
+  let entries = loadEntries();
   entries.forEach(entry => {
     data.push(entry);
   });
@@ -37,9 +36,6 @@ function createWindow() {
     mainWindow = null;
   });
 
-  let argv = require('yargs').argv;
-  let configPath = argv.config ? argv.config : './app/db';
-  storage.setConfigPath(configPath);
 }
 
 app.on('ready', createWindow);
