@@ -59,4 +59,30 @@ describe('Storage', function () {
         templates.get('TestCompany').should.deep.equal(["TEST", "VSA"]);
         templates.get('TestCompany2').should.deep.equal(["VSA"]);
     });
+
+    it('returns templates for the company', () => {
+        let data = '{"companies":["Company1", "Company2"]}';
+        fs.writeFileSync('./tests/db/companies.json', data);
+        data = `{"reports":[
+            {"company":"Company1", "template":"TEST"},
+            {"company":"Company2", "template":"VSA"},
+            {"company":"Company1", "template":"VSA"}
+            ]}`;
+        fs.writeFileSync('./tests/db/reports.json', data);
+        data = `{"templates":[
+            {"name":"VSA", "type":"MONTHLY", "config":"15"},
+            {"name":"SOME", "type":"MONTHLY", "config":"10"},
+            {"name":"TEST", "type":"MONTHLY", "config":"20"}
+        ]}`;
+        fs.writeFileSync('./tests/db/templates.json', data);
+
+        const storage = new Storage('tests/db');
+
+        let templates = storage.getTemplatesFor("Company1");
+
+        templates.should.deep.equal(new Set(
+            [{ name: "VSA", type: "MONTHLY", config: "15" },
+                { name: "TST", type: "MONTHLY", config: "20" }])
+        );
+    });
 });

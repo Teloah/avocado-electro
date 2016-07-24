@@ -33,6 +33,9 @@ describe('Report', function () {
         let reports = new Map();
         reports.set("TestCompany", ["VSA"]);
         let storage = new StubStorage(["TestCompany"], templates, reports);
+        storage.getTemplatesFor = () => {
+            return new Set([{ name: "VSA", type: "MONTHLY", config: "15" }]);
+        };
         let report = new Report(storage);
         let entries = report.parseEntries();
         entries.should.deep.equal([{ company: "TestCompany", report: "VSA", date: "20160715", comment: "" }]);
@@ -49,6 +52,9 @@ describe('Report', function () {
                 ["TestCompany", ["Template1", "Template2"]],
             ])
         );
+        storage.getTemplatesFor = () => {
+            return new Set([{ name: "Template1", type: "MONTHLY", config: "15" }, { name: "Template2", type: "MONTHLY", config: "20" }]);
+        };
         let report = new Report(storage);
         let entries = report.parseEntries();
         entries.should.deep.equal([
@@ -69,6 +75,14 @@ describe('Report', function () {
                 ["TestCompany2", ["Template2"]]
             ])
         );
+        storage.getTemplatesFor = (company) => {
+            if (company === "TestCompany") {
+                return new Set([{ name: "Template1", type: "MONTHLY", config: "15" }]);
+            }
+            else {
+                return new Set([{ name: "Template2", type: "MONTHLY", config: "20" }]);
+            }
+        };
         let report = new Report(storage);
         let entries = report.parseEntries();
         entries.should.deep.equal([

@@ -1,5 +1,6 @@
 class Report {
     constructor(storage) {
+        this.storage = storage;
         this.companies = storage.loadCompanies();
         this.templates = storage.loadTemplates();
         this.reports = storage.loadReports();
@@ -7,9 +8,8 @@ class Report {
     parseEntries() {
         let entries = [];
         this.companies.forEach(company => {
-            let company_reports = this.reports.get(company);
-            company_reports.forEach(report => {
-                let template = this.templates.get(report);
+            let templates = this.storage.getTemplatesFor(company);
+            templates.forEach(template => {
                 entries.push({ report: `${template.name}`, company: `${company}`, date: `201607${template.config}`, comment: `` });
             });
         });
