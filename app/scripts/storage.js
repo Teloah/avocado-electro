@@ -44,10 +44,12 @@ class Storage {
     getTemplatesFor(company) {
         let result = new Set();
         const reports = this.loadReports().get(company);
-        const templates = this.loadTemplates();
-        reports.forEach(report => {
-            result.add(templates.get(report));
-        });
+        if (reports) {
+            const templates = this.loadTemplates();
+            reports.forEach(report => {
+                result.add(templates.get(report));
+            });
+        }
         return result;
     }
 }
