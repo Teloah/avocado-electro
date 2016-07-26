@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "electron-prebuilt": "1.2.7",
-        "electron-reload": "~1.0.0",
+        "electron-reload": "1.0.1",
         "jquery": "~2.2.4",
         "yargs": "4.7.1"
     }
