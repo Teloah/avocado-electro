@@ -95,10 +95,20 @@ nav ul {
 	border: 1px solid lawngreen;
 }
 
-.report {
-	border: 1px solid red;
+.report_date {
+	display: inline-block;
+	min-width: 5em;
 }
 
 .report_name {
-	color: green;
+	display: inline-block;
+	min-width: 3em;
+}
+.report_company {
+	display: inline-block;
+	min-width: 10em;
+}
+
+.report_comment {
+	display: inline-block;
 }

@@ -11,18 +11,18 @@ class HomePresenter {
 module.exports = HomePresenter;
 
 function formatReportsDOM(reports) {
-	let table_html = `<table class="reports">
-						<thead><tr><th>Date</th><th>Name</th><th>Company</th><th>Comments</th></tr></thead>
-						<tbody>`;
+	let table_html = `<div class="reports">
+						<div><th>Date</th><th>Name</th><th>Company</th><th>Comments</th></thead>
+						<div>`;
 	reports.forEach(report => {
-		table_html += `<tr class="report">`;
-		table_html += `<td class="report_date">${report.date}</td>`;
-		table_html += `<td class="report_name">${report.report}</td>`;
-		table_html += `<td class="report_company">${report.company}</td>`;
-		table_html += `<td class="report_comment">${report.comment}</td>`;
-		table_html += `</tr>`;
+		table_html += `<div class="report">`;
+		table_html += `<div class="report_date">${report.date}</div>`;
+		table_html += `<div class="report_name">${report.report}</div>`;
+		table_html += `<div class="report_company">${report.company}</div>`;
+		table_html += `<div class="report_comment">${report.comment}</div>`;
+		table_html += `</div>`;
 	});
-	table_html += `</tbody></table>`;
+	table_html += `</div></div>`;
 	return table_html;
 }
 
