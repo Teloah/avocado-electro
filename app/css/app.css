@@ -103,6 +103,25 @@ nav ul {
     font-weight: bold;
 }
 
+.report_date_header {
+    display: inline-block;
+    width: 100px;
+}
+
+.report_name_header {
+    display: inline-block;
+    width: 100px;
+}
+
+.report_company_header {
+    display: inline-block;
+    width: 200px;
+}
+
+.report_comment_header {
+    display: inline-block;
+}
+
 .report_date {
     display: inline-block;
     width: 100px;

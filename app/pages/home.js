@@ -12,11 +12,11 @@ module.exports = HomePresenter;
 
 function formatReportsDOM(reports) {
     let table_html = `<div class="reports">`;
-        table_html += `<div class="report">`;
-        table_html += `<div class="report_date report_table_header">Date</div>`;
-        table_html += `<div class="report_name report_table_header">Name</div>`;
-        table_html += `<div class="report_company report_table_header">Company</div>`;
-        table_html += `<div class="report_comment report_table_header">Comment</div>`;
+        table_html += `<div class="report_head">`;
+        table_html += `<div class="report_date_header report_table_header">Date</div>`;
+        table_html += `<div class="report_name_header report_table_header">Name</div>`;
+        table_html += `<div class="report_company_header report_table_header">Company</div>`;
+        table_html += `<div class="report_comment_header report_table_header">Comment</div>`;
         table_html += `</div>`;
     reports.forEach(report => {
         table_html += `<div class="report">`;
