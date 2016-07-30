@@ -98,45 +98,36 @@ nav ul {
     margin: 0;
 }
 
-.report_table_header {
+.report_head {
     color: #008a00;
     font-weight: bold;
 }
 
-.report_date_header {
+.report_cell {
     display: inline-block;
+}
+
+.report_date_header {
     width: 100px;
 }
 
 .report_name_header {
-    display: inline-block;
     width: 100px;
 }
 
 .report_company_header {
-    display: inline-block;
     width: 200px;
 }
 
-.report_comment_header {
-    display: inline-block;
-}
-
 .report_date {
-    display: inline-block;
     width: 100px;
 }
 
 .report_name {
-    display: inline-block;
     width: 100px;
 }
 
 .report_company {
-    display: inline-block;
     width: 200px;
 }
 
-.report_comment {
-    display: inline-block;
-}
