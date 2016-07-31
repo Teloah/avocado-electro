@@ -69,10 +69,10 @@ describe('application launch', function () {
         return this.app.client.waitUntilWindowLoaded()
             .click('#companies')
             .click('#home')
-            .getText('.report_date').should.eventually.equal('20160715')
-            .getText('.report_name').should.eventually.equal('VSA')
-            .getText('.report_company').should.eventually.equal('TestCompany')
-            .getText('.report_comment').should.eventually.equal('Comment');
+            .getText('.report:nth-child(2) .report_date').should.eventually.equal('20160715')
+            .getText('.report:nth-child(2) .report_name').should.eventually.equal('VSA')
+            .getText('.report:nth-child(2) .report_company').should.eventually.equal('TestCompany')
+            .getText('.report:nth-child(2) .report_comment').should.eventually.equal('Comment');
     });
 
     it('shows several saved report entries', function () {
@@ -106,10 +106,10 @@ describe('application launch', function () {
         return this.app.client.waitUntilWindowLoaded()
             .click('#companies')
             .click('#home')
-            .getText('.report_date').should.eventually.equal('20160715')
-            .getText('.report_name').should.eventually.equal('TEST')
-            .getText('.report_company').should.eventually.equal('TestCompany')
-            .getText('.report_comment').should.eventually.equal('');
+            .getText('.report:nth-child(2) .report_date').should.eventually.equal('20160715')
+            .getText('.report:nth-child(2) .report_name').should.eventually.equal('TEST')
+            .getText('.report:nth-child(2) .report_company').should.eventually.equal('TestCompany')
+            .getText('.report:nth-child(2) .report_comment').should.eventually.equal('');
     });
 
 });

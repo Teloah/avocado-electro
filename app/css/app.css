@@ -107,18 +107,6 @@ nav ul {
     display: inline-block;
 }
 
-.report_date_header {
-    width: 100px;
-}
-
-.report_name_header {
-    width: 100px;
-}
-
-.report_company_header {
-    width: 200px;
-}
-
 .report_date {
     width: 100px;
 }
