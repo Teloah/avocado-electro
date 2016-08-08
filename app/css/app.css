@@ -93,18 +93,22 @@ nav ul {
 
 .reports {
     border: 1px solid greenyellow;
-    padding: 0;
+    padding: 0 10px;
     border: 0;
     margin: 0;
 }
 
 .report_head {
     color: #008a00;
+    font-size: 1.2em;
     font-weight: bold;
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid #7d7e7d;
 }
 
 .report_cell {
     display: inline-block;
+    padding-top: 5px;
 }
 
 .report_date {
@@ -119,3 +123,11 @@ nav ul {
     width: 200px;
 }
 
+.report_comment {
+    border-bottom: 1px solid #eee;
+    min-width: 200px;
+}
+
+.report_comment:hover {
+    border-bottom: 1px dotted #aaa;
+}
