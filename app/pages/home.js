@@ -16,14 +16,14 @@ function formatReportsDOM(reports) {
         table_html += `<div class="report_date report_cell">Date</div>`;
         table_html += `<div class="report_name report_cell">Name</div>`;
         table_html += `<div class="report_company report_cell">Company</div>`;
-        table_html += `<div class="report_comment report_cell">Comment</div>`;
+        table_html += `<div class="report_comment_head report_cell">Comment</div>`;
         table_html += `</div>`;
     reports.forEach(report => {
         table_html += `<div class="report">`;
         table_html += `<div class="report_date report_cell">${report.date}</div>`;
         table_html += `<div class="report_name report_cell">${report.report}</div>`;
         table_html += `<div class="report_company report_cell">${report.company}</div>`;
-        table_html += `<div class="report_comment report_cell">${report.comment}</div>`;
+        table_html += `<input type="text" class="report_comment report_cell" value="${report.comment}"></input>`;
         table_html += `</div>`;
     });
     table_html += `</div>`;

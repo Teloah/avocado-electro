@@ -72,7 +72,7 @@ describe('application launch', function () {
             .getText('.report:nth-child(2) .report_date').should.eventually.equal('20160715')
             .getText('.report:nth-child(2) .report_name').should.eventually.equal('VSA')
             .getText('.report:nth-child(2) .report_company').should.eventually.equal('TestCompany')
-            .getText('.report:nth-child(2) .report_comment').should.eventually.equal('Comment');
+            .getValue('.report:nth-child(2) .report_comment').should.eventually.equal('Comment');
     });
 
     it('shows several saved report entries', function () {
@@ -88,11 +88,11 @@ describe('application launch', function () {
             .getText('.report:nth-child(2) .report_date').should.eventually.equal('20160715')
             .getText('.report:nth-child(2) .report_name').should.eventually.equal('VSA')
             .getText('.report:nth-child(2) .report_company').should.eventually.equal('TestCompany')
-            .getText('.report:nth-child(2) .report_comment').should.eventually.equal('Comment')
+            .getValue('.report:nth-child(2) .report_comment').should.eventually.equal('Comment')
             .getText('.report:nth-child(3) .report_date').should.eventually.equal('20160720')
             .getText('.report:nth-child(3) .report_name').should.eventually.equal('PVN')
             .getText('.report:nth-child(3) .report_company').should.eventually.equal('Other Company')
-            .getText('.report:nth-child(3) .report_comment').should.eventually.equal('No comments');
+            .getValue('.report:nth-child(3) .report_comment').should.eventually.equal('No comments');
     });
 
     it('creates a new entry from config and shows it', function () {

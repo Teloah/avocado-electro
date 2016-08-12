@@ -124,10 +124,16 @@ nav ul {
 }
 
 .report_comment {
+    border: none;
     border-bottom: 1px solid #eee;
     min-width: 200px;
+    background-color: #eee;
 }
 
 .report_comment:hover {
-    border-bottom: 1px dotted #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.report_comment_head {
+    min-width: 200px;
 }
