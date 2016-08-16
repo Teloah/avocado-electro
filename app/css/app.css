@@ -109,6 +109,7 @@ nav ul {
 .report_cell {
     display: inline-block;
     padding-top: 5px;
+    font-size: 1em;
 }
 
 .report_date {
@@ -136,4 +137,9 @@ nav ul {
 
 .report_comment_head {
     min-width: 200px;
+}
+
+.report input[type="text"] {
+    font-family: "Segoe UI", Ubuntu;
+    font-size: 1em;
 }
