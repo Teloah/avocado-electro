@@ -36,12 +36,12 @@
     "chai-as-promised": "5.3.0",
     "grunt": "1.0.1",
     "grunt-simple-mocha": "0.4.1",
-    "spectron": "~3.2.2"
+    "spectron": "~3"
   },
   "dependencies": {
-    "electron-prebuilt": "1.4.3",
-    "electron-reload": "1.0.2",
+    "electron-prebuilt": "~1.4.3",
+    "electron-reload": "~1.1",
     "jquery": "~2.2.4",
-    "yargs": "4.7.1"
+    "yargs": "~4.7.1"
   }
 }
